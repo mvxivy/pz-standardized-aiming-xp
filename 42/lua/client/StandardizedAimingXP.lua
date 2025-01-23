@@ -13,6 +13,8 @@
 --************************************************************************************************
 --**  Would not recommend changing anything past this point unless you know what you are doing. **
 --************************************************************************************************
+ModOptions.InitModOptions()
+
 local options = ModOptions
 
 local aimingMultiplier = {1,1.5,2,3,5,10};
