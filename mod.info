@@ -1,0 +1,5 @@
+name=Standardized Aiming XP
+poster=poster.png
+id=STAIMING
+description=Standardized Aiming and Gun XP
+require=modoptions
