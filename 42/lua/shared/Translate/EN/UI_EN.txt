@@ -1,3 +1,4 @@
 UI_EN = {
-  
+  UI_options_STAIMING_B42_multiplier_label = "Xp Multiplier",
+  UI_options_STAIMING_B42_multiplier_description = "Xp Multiplier for Aiming Skill, all choices have removed the xp reduction post lvl-5"
 }

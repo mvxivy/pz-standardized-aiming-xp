@@ -13,25 +13,22 @@
 --************************************************************************************************
 --**  Would not recommend changing anything past this point unless you know what you are doing. **
 --************************************************************************************************
-local SETTINGS = StandardizedAimingXP_global.SETTINGS
+local options = ModOptions
 
-local aimingMult = {1,1.5,2,3,5,10};
---					(1x,1.5x,2x,3x,5x,10x) -- The REAL xp multipliers that effect your game!
+local aimingMultiplier = {1,1.5,2,3,5,10};
 
-
-onGunHitXp = function(owner, weapon, hitObject, damage)
-	-- add xp for ranged weapon
-	
+function onGunHitXp(owner, weapon, hitObject, damage)	
 	if weapon:isRanged() then
+		local multiplier = tonumber(aimingMultiplier[options.ComboBoxMultiplier:getValue()])
 		local origXP = owner:getLastHitCount();
 		local xp = origXP;
 		if owner:getPerkLevel(Perks.Aiming) >= 5 then
-			xp = origXP * 2.7 * tonumber(aimingMult[SETTINGS.options.dropdown1]);
+			xp = origXP * 2.7 * multiplier;
 			xp = xp - origXP;
 			owner:getXp():AddXP(Perks.Aiming, xp);
 		end
-		if (owner:getPerkLevel(Perks.Aiming) < 5) and (tonumber(aimingMult[SETTINGS.options.dropdown1]) ~= 1) then
-			xp = origXP * 2.7 * tonumber(aimingMult[SETTINGS.options.dropdown1]);
+		if (owner:getPerkLevel(Perks.Aiming) < 5) and (multiplier ~= 1) then
+			xp = origXP * 2.7 * multiplier;
 			xp = xp - (origXP * 2.7);
 			owner:getXp():AddXP(Perks.Aiming, xp);
 		end
