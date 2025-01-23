@@ -1,6 +1,7 @@
 id=STAIMING_B42
 name=Standardized Aiming XP
 poster=poster.png
+icon=icon.png
 description=Standardized Aiming and Gun XP for 42 Build
 author=Mortazar
 modversion=1.0.0
