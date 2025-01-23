@@ -13,14 +13,16 @@
 --************************************************************************************************
 --**  Would not recommend changing anything past this point unless you know what you are doing. **
 --************************************************************************************************
-local options = require("ModOptions")
-option.InitModOptions()
+
+local options = require("STAIMB42_modOptions")
+
+options.initModOptions()
 
 local aimingMultiplier = {1,1.5,2,3,5,10};
 
 local function onGunHitXp(owner, weapon, hitObject, damage)	
 	if weapon:isRanged() then
-		local multiplier = tonumber(aimingMultiplier[options.ComboBoxMultiplier:getValue()])
+		local multiplier = tonumber(aimingMultiplier[tonumber(options.ComboBoxMultiplier:getValue())])
 		local origXP = owner:getLastHitCount();
 		local xp = origXP;
 		if owner:getPerkLevel(Perks.Aiming) >= 5 then
@@ -37,9 +39,9 @@ local function onGunHitXp(owner, weapon, hitObject, damage)
 end
 
 local function Debug ()
-	print("selected mutliplier option number: " .. options.ComboBoxMultiplier:getValue())
-	print("selected multiplier option value: " .. tonumber(aimingMultiplier[config.ComboBoxMultiplier:getValue()]))
+	print("[Standardized Aiming XP] selected mutliplier option number: " .. options.ComboBoxMultiplier:getValue())
+	print("[Standardized Aiming XP] selected multiplier option value: " .. tonumber(aimingMultiplier[options.ComboBoxMultiplier:getValue()]))
 end
 
 Events.OnWeaponHitXp.Add(onGunHitXp)
-Events.OnWeaponHitXp.Add(Debug)
+Events.OnPlayerMove.Add(Debug)

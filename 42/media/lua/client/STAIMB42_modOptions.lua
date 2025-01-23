@@ -1,15 +1,15 @@
-local config = Config
-local modOptions = {
-	ComboBoxMultiplier = nil
-}
+local config = require("STAIMB42_config")
 
-local function modOptions.InitModOptions()
-	local options = PZAPI.ModOptions:create(config.ModId, config.ModName)
+local modOptions = {}
+
+function modOptions.initModOptions()
+	local options = PZAPI.ModOptions:create(config.modId, config.modName)
 
 	local ComboBoxMultiplier = options:addComboBox(
-		"combobox1",
+		"STAIMING_B42_combobox1",
 		getText("UI_options_STAIMING_B42_multiplier_label")
 	)
+	modOptions.ComboBoxMultiplier = ComboBoxMultiplier
 
 	ComboBoxMultiplier:addItem("1x", true)
 	ComboBoxMultiplier:addItem("1.5x", false)
@@ -19,9 +19,6 @@ local function modOptions.InitModOptions()
 	ComboBoxMultiplier:addItem("10x", false)
 
 	options:addDescription(getText("UI_options_STAIMING_B42_multiplier_description"))
-
-	modOptions.ComboBoxMultiplier = ComboBoxMultiplier
 end
 
-ModOptions = modOptions
 return modOptions
