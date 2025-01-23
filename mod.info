@@ -1,5 +1,6 @@
 name=Standardized Aiming XP
 poster=poster.png
-id=STAIMING
+id=STAIMING_B42
 description=Standardized Aiming and Gun XP
+authors=ConquerorKoala,Mortazar
 require=modoptions
