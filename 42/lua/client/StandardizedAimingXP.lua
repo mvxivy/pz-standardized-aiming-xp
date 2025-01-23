@@ -17,7 +17,7 @@ local options = ModOptions
 
 local aimingMultiplier = {1,1.5,2,3,5,10};
 
-function onGunHitXp(owner, weapon, hitObject, damage)	
+local function onGunHitXp(owner, weapon, hitObject, damage)	
 	if weapon:isRanged() then
 		local multiplier = tonumber(aimingMultiplier[options.ComboBoxMultiplier:getValue()])
 		local origXP = owner:getLastHitCount();
@@ -33,6 +33,11 @@ function onGunHitXp(owner, weapon, hitObject, damage)
 			owner:getXp():AddXP(Perks.Aiming, xp);
 		end
 	end
+end
+
+local function Debug ()
+	print("selected mutliplier option number: " .. options.ComboBoxMultiplier:getValue())
+	print("selected multiplier option value: " .. tonumber(aimingMultiplier[config.ComboBoxMultiplier:getValue()]))
 end
 
 Events.OnWeaponHitXp.Add(onGunHitXp)
