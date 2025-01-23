@@ -18,7 +18,7 @@ local options = require("STAIMB42_modOptions")
 
 options.initModOptions()
 
-local aimingMultiplier = {1,1.5,2,3,5,10,1000};
+local aimingMultiplier = {1,1.5,2,3,5,10};
 
 local function onGunHitXp(owner, weapon, hitObject, damage)	
 	if weapon:isRanged() then
