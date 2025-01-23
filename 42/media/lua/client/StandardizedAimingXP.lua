@@ -13,9 +13,8 @@
 --************************************************************************************************
 --**  Would not recommend changing anything past this point unless you know what you are doing. **
 --************************************************************************************************
-ModOptions.InitModOptions()
-
-local options = ModOptions
+local options = require("ModOptions")
+option.InitModOptions()
 
 local aimingMultiplier = {1,1.5,2,3,5,10};
 
@@ -43,3 +42,4 @@ local function Debug ()
 end
 
 Events.OnWeaponHitXp.Add(onGunHitXp)
+Events.OnWeaponHitXp.Add(Debug)
