@@ -17,6 +17,7 @@ function modOptions.initModOptions()
 	ComboBoxMultiplier:addItem("3x", false)
 	ComboBoxMultiplier:addItem("5x", false)
 	ComboBoxMultiplier:addItem("10x", false)
+	ComboBoxMultiplier:addItem("1000x", false)
 
 	options:addDescription(getText("UI_options_STAIMING_B42_multiplier_description"))
 end

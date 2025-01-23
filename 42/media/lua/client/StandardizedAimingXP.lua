@@ -18,7 +18,7 @@ local options = require("STAIMB42_modOptions")
 
 options.initModOptions()
 
-local aimingMultiplier = {1,1.5,2,3,5,10};
+local aimingMultiplier = {1,1.5,2,3,5,10,1000};
 
 local function onGunHitXp(owner, weapon, hitObject, damage)	
 	if weapon:isRanged() then
@@ -44,4 +44,4 @@ local function Debug ()
 end
 
 Events.OnWeaponHitXp.Add(onGunHitXp)
-Events.OnPlayerMove.Add(Debug)
+-- Events.OnPlayerMove.Add(Debug)
